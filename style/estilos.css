@@ -1,0 +1,67 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{
+	background-image: url(../img/fondo.jpg);
+	background-size: 100%;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: center;
+}
+
+#form{
+	font-family: 'Charmonman', cursive;
+	font-size: 20px;
+	background-color: white;
+	text-align: center;
+	border:2px solid grey;
+	border-radius: 25px;
+	line-height: 10px;
+	margin: 0 0 0 0;
+	height: 300px;
+	width: 20%;
+	position: relative;
+	top: 300px;
+	left: 40%;
+	padding: 25px 0 25px 0;
+	-webkit-transition:0.5s;
+}
+
+#form:hover{
+	border-radius:50px;
+}
+input[type=text] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+input[type=text]:hover {
+    border-radius:10px;
+}
+
+
+input[type=submit] {
+    width: 30%;
+    background-color: #828282;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+	-webkit-transition:0.5s;	
+}
+
+input[type=submit]:hover {
+    background-color: #6B6B6B;
+	border-radius:8px;
+}
