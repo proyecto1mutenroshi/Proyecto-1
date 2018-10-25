@@ -1,15 +1,25 @@
-
 <!DOCTYPE html>
 <html>
 <head>
 	<title></title>
+	<script type="text/javascript">
+		function buscar() {
+			if(document.for1.tipo_recurso.value=){
+				alert("las contraseñas deben coincidir");
+				return false;
+			}else{
+				alert("usuario creado");
+				return true;
+			}
+		}
+	</script>
 </head>
 <body>
-<form action="recurso.proc.php" name="for1" method="POST">
+<form action="recurso.proc.php" name="for1" method="POST" onsubmit="return buscar();">
 		nombre del recurso:
-		<input type="text" name="nombre_recurso"><br>
+		<input type="text" name="tipo_recurso"><br>
 		tipo de recurso:
-		<input type="select" name="tipo_recurso"><br>
+		<input type="select" name="nombre_recurso"><br>
 		Hora inicial:
 		<input type="time" name="hora_inicial"><br>
 		Hora final:
