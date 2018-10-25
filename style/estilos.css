@@ -20,8 +20,8 @@ body{
 	margin: 0 0 0 0;
 	height: 300px;
 	width: 20%;
-	position: relative;
-	top: 300px;
+	position: absolute;
+	top: 30%;
 	left: 40%;
 	padding: 25px 0 25px 0;
 	-webkit-transition:0.5s;
@@ -48,10 +48,28 @@ input[type=text]:hover {
     border-radius:10px;
 }
 
+input[type=password] {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border: 3px solid #ccc;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=password]:focus {
+    border: 3px solid #555;
+}
+
+input[type=password]:hover {
+    border-radius:10px;
+}
 
 input[type=submit] {
-    width: 30%;
+    width: 40%;
     background-color: #828282;
+	text-align: center;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
