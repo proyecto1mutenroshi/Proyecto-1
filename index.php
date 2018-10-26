@@ -4,24 +4,9 @@
 	<meta charset="utf-8">
 	<title>Login</title>
 	<link rel="stylesheet" type="text/css" href="./style/estilos.css"/>
-	<script type="text/javascript">
-		function login(){
-			if(document.for1.user.value="$user" && document.for1.contrasenya.value="$contrasenya"){
-				alert("Bienvenido "+user.value);
-				return true;
-			}else{
-				alert("nombre de usuario y/o contraseña incorrecta");
-				return false;
-			}
-		}
-	</script>
 	<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
 </head>
 <body>
-		<?php
-		$user=$_GET['User']
-		$contrasenya=$_GET['contrasenya_empleados']
-		?>
 	<div id="form">
 		<form action="login.proc.php" name="for1" method="POST" onsubmit="return login();">
 			<p>Nombre de usuario:</p>
