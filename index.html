@@ -5,13 +5,13 @@
 	<title>Reserva Recursos</title>
 	<link rel="stylesheet" type="text/css" href="./style/estilos.css"/>
 	<script type="text/javascript">
-		function validar1(){
-			if(document.for1.contrasenya.value!=contrasenya){
-				alert("las contraseñas deben coincidir");
-				return false;
-			}else{
-				alert("usuario creado");
+		function login(){
+			if(document.for1.user.value="Raul" && document.for1.contrasenya.value=1234){
+				alert("Bienvenido "+user.value);
 				return true;
+			}else{
+				alert("nombre de usuario o contraseña incorrecta");
+				return false;
 			}
 		}
 	</script>
@@ -19,7 +19,10 @@
 </head>
 <body>
 	<div id="form">
-		<form action="login.proc.php" name="for1" method="POST" onsubmit="return validar1();">
+		<?php
+		$cat_id=$_GET['cat_id']
+		?>
+		<form action="login.proc.php" name="for1" method="POST" onsubmit="return login();">
 			<p>Nombre de usuario:</p>
 			<input type="text" name="user" placeholder="N. Usuario"><br><br>
 			<p>Contraseña:</p>
