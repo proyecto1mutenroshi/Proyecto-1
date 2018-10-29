@@ -1,6 +1,6 @@
 <?php
-	$user=$_POST['user'];
-	$contrasenya=$_POST['contrasenya'];
+	$user=$_REQUEST['user'];
+	$contrasenya=$_REQUEST['contrasenya'];
 
 	if(empty($user) || empty($contrasenya)){
 	echo "campos vacios";
@@ -14,7 +14,7 @@
 			    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
 			    exit;
 			}
-	$query = mysqli_query($link, "SELECT * from tbl_empleados where nusuario_empleado = '" . $user . "'");
+	$query = mysqli_query($link, "SELECT * from tbl_empleados where nusuario_empleado='$user'");
 
 	if($row = mysqli_fetch_array($query)){
 	if($row['contrasenya_empleado'] == $contrasenya){
