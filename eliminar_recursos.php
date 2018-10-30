@@ -17,11 +17,11 @@
 		// $resultado = $mysqli_query ($query);
 		
 		?>
-		<form action="formulario_recursos.proc.php" name="for2" method="POST">
+		<form action="eliminar_reserva.proc.php" name="for2" method="POST">
 			Número del recurso que vas a borrar:
 			<select name="tipo_recurso">
 	        <?php
-	          $query = $link -> query ("SELECT * FROM tbl_recurso");
+	          $query = $link -> query ("SELECT * FROM tbl_reserva");
 	          while ($valores = mysqli_fetch_array($query)) {
 	            echo '<option value="'.$valores[nombre_recurso].'">'.$valores[nombre_recurso].'</option>';
 	          }
