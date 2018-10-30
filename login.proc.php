@@ -17,16 +17,17 @@
 	$query = mysqli_query($link, "SELECT * from tbl_empleados where nusuario_empleado='$user'");
 
 	if($row = mysqli_fetch_array($query)){
-	if($row['contrasenya_empleado'] == $contrasenya){
-	session_start();
-	$_SESSION['usuario'] = $user;
-	header("Location: formulario_recursos.php");
+		if($row['contrasenya_empleado'] == $contrasenya){
+			session_start();
+			$_SESSION['usuario'] = $user;
+			$_SESSION['idusuario'] = $row['id_empleado'];
+			header("Location: formulario_recursos.php");
+		}else{
+			echo 'usuario o contraseña incorrectos';
+			//header("Location: index.php");
+		}
 	}else{
-	echo 'usuario o contraseña incorrectos';
-	header("Location: index.php");
-	}
-	}else{
-	echo 'usuario o contraseña incorrectos';
-	header("Location: index.php");
+		echo 'usuario o contraseña incorrectos';
+		//header("Location: index.php");
 	}
 ?>

@@ -25,7 +25,7 @@
 		//Variable de la sesión
 		session_start();
 		// $_SESSION["usuario"]=$_POST["usuario"];
-		echo "<h3>Hola " . $_SESSION['usuario'] . "</h3>";
+		echo "<h3>Hola " . $_SESSION['idusuario'] . "</h3>";
 	
 ?>
 	
@@ -46,7 +46,7 @@
 		<input type="time" name="hora_final"><br>
 		Día:
 		<input type="date" name="dia"><br><br>
-
+		<input type="hidden" name="idusuario" value='<?php echo $_SESSION['idusuario']?>' >
 		<input type="submit" name="confirmar" value="confirmar">
 		<input type="button" value="Volver al login" onclick="window.location.href='login.proc.php'" />
 		
