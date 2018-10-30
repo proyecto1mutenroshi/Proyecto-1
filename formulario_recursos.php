@@ -1,33 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<<<<<<< HEAD
+
 	<title> Main Page </title>
-=======
 	<title></title>
->>>>>>> fb142f7839c6385f44aef0023c7f4fdbd92a61d7
+	<meta charset="utf-8">
 </head>
 <body>
 <?php
-session_start();
-echo "Hola " . $_SESSION['usuario'];
+	$link = mysqli_connect('localhost', 'root', '', 'reserva_recursos');
+			if (!$link) {
+			    echo "Error: No se pudo conectar a MySQL." . PHP_EOL;
+			    echo "errno de depuración: " . mysqli_connect_errno() . PHP_EOL;
+			    echo "error de depuración: " . mysqli_connect_error() . PHP_EOL;
+			    exit;
+			}
+
+$query = mysqli_query($link, "SELECT * FROM tbl_recurso ORDER BY nombre_recurso");
+	while($recursos = mysqli_fetch_array($query)){
+		echo "Recurso: $recursos[nombre_recurso]<br>";
+	}
+	echo "<br>";
+	//Variable de la sesión
+	session_start();
+	$_SESSION["usuario"]=$_POST["usuario"];
+	echo "<h3>Hola " . $_SESSION['usuario'] . "</h3>";
+	
 ?>
-<<<<<<< HEAD
-<form action="formulario_recursos.proc.php" name="for2" method="POST">
-=======
-<form action="recurso.proc.php" name="for1" method="POST" onsubmit="return buscar();">
->>>>>>> fb142f7839c6385f44aef0023c7f4fdbd92a61d7
-		nombre del recurso:
+<br>
+<!-- <<<<<<< HEAD -->
+	<form action="formulario_recursos.proc.php" name="for2" method="POST">
+<!-- ======= -->
+		Nombre del recurso:
 		<input type="text" name="tipo_recurso"><br>
-		tipo de recurso:
+		Tipo de recurso:
 		<input type="select" name="nombre_recurso"><br>
 		Hora inicial:
 		<input type="time" name="hora_inicial"><br>
 		Hora final:
 		<input type="time" name="hora_final"><br>
-		día:
+		Día:
 		<input type="date" name="dia"><br>
 		<input type="submit" name="confirmar" value="confirmar">
-</form>
+		<input type="hidden" name="usuario2" value="usuario">
+	</form>
+	<h3>Reservas ya hechas</h3>
+	<?php
+		$query = mysqli_query($link, "SELECT * FROM tbl_reserva ORDER BY id_reserva, nombre_recurso, horainicio_reserva, horasalida_reserva, dia_reserva");
+		while($recursos = mysqli_fetch_array($query)){
+		echo "Recurso: $recursos[id_reserva], Nombre: $recursos[nombre_recurso], Hora Inicio: $recursos[horainicio_reserva] ,Hora Final: $recursos[horasalida_reserva], Día reserva: $recursos[dia_reserva]<br>";
+	}
+	?>
 </body>
 </html>
