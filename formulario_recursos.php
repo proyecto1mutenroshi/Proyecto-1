@@ -54,14 +54,27 @@
 
 	<h3>Reservas ya hechas</h3>
 	<?php
+
 		$query = mysqli_query($link, "SELECT * FROM tbl_reserva ORDER BY id_reserva, nombre_recurso, horainicio_reserva, horasalida_reserva, dia_reserva");
 		while($recursos = mysqli_fetch_array($query)){
-		echo "Recurso: $recursos[id_reserva], Nombre: $recursos[nombre_recurso], Hora Inicio: $recursos[horainicio_reserva] ,Hora Final: $recursos[horasalida_reserva], Día reserva: $recursos[dia_reserva]<br>";
-	}
 	?>
+			<table border="1px">
+				<tr>
+					<td><?php echo "Recurso: $recursos[id_reserva]"?></td>
+					<td><?php echo "Nombre: $recursos[nombre_recurso]"?></td>
+					<td><?php echo "Hora Inicio: $recursos[horainicio_reserva]"?></td>
+					<td><?php echo "Hora Final: $recursos[horasalida_reserva]"?></td>
+					<td><?php echo "Día reserva: $recursos[dia_reserva]"?></td>
+				</tr>
+			</table>
+		<!-- echo "Recurso: $recursos[id_reserva], Nombre: $recursos[nombre_recurso], Hora Inicio: $recursos[horainicio_reserva] ,Hora Final: $recursos[horasalida_reserva], Día reserva: $recursos[dia_reserva]<br>"; -->
+		<?php
+		}
+		?>
 	<br>
 	<form>
 		<input type="button" value="Eliminar reserva" onclick="window.location.href='eliminar_recursos.php'" />
 	</form>
+
 </body>
 </html>
