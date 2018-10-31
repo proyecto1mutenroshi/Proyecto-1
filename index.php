@@ -13,8 +13,10 @@
 			<input type="text" name="user" placeholder="N. Usuario"><br><br>
 			<p>Contraseña:</p>
 			<input type="text" name="contrasenya" placeholder="Contraseña"><br><br>
-			<input type="submit" name="confirmar" value="Confirmar">
+			<!-- <button id="enviar" type="submit" onclick="cifrar()">Confirmar</button> -->
+			<input type="submit" name="confirmar" onclick="cifrar()" value="Confirmar">
 		</form>
 	</div>
+	<script src="js.js"></script>
 </body>
 </html>

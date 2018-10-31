@@ -3,8 +3,7 @@
 	$contrasenya=$_REQUEST['contrasenya'];
 
 	if(empty($user) || empty($contrasenya)){
-	echo "campos vacios";
-	header("Location: index.html");
+	echo"<script type=\"text/javascript\">alert('Campos Vacios'); window.location='index.php';</script>";
 	}
 
 	$link = mysqli_connect('localhost', 'root', '', 'reserva_recursos');
@@ -23,11 +22,9 @@
 			$_SESSION['idusuario'] = $row['id_empleado'];
 			header("Location: formulario_recursos.php");
 		}else{
-			echo 'usuario o contraseña incorrectos';
-			//header("Location: index.php");
+			echo"<script type=\"text/javascript\">alert('Usuario o Contraseña incorrectos'); window.location='index.php';</script>";
 		}
 	}else{
-		echo 'usuario o contraseña incorrectos';
-		//header("Location: index.php");
+		echo"<script type=\"text/javascript\">alert('Usuario o Contraseña incorrectos'); window.location='index.php';</script>";
 	}
 ?>
