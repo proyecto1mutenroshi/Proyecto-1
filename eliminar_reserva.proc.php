@@ -20,9 +20,9 @@
 			mysqli_query($link, "DELETE FROM tbl_reserva WHERE nombre_recurso='$recurso'");
 			header("Location: formulario_recursos.php");
 		}else{
-		echo "no tienes permiso para eliminar esta reserva $_SESSION[idusuario]";
+		echo"<script type=\"text/javascript\">alert('no tienes permiso para eliminar esta reserva'); window.location='formulario_recursos.php';</script>";
 		echo $recurso;
-		break;
+		header("Location: formulario_recursos.php");
 			}
 	}
 	
