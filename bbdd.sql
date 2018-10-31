@@ -31,11 +31,11 @@ CREATE TABLE IF NOT EXISTS `tbl_empleados`(
 
 CREATE TABLE IF NOT EXISTS `tbl_reserva`(
 	`id_reserva` INT(100) NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria',
-	`id_empleado` INT(10) NULL COMMENT 'FK del empleado que hace la reserva',
-	`id_recurso` INT(10) NULL COMMENT 'FK del recurso que se reserva',
-	`horainicio_reserva` TIME(0) NULL COMMENT 'Fecha y hora a la que se realiza la reserva',
-	`horasalida_reserva` TIME(0) NULL COMMENT 'Hora a la que se realiza la devolución de la reserva',
-	`dia_reserva` DATE(0) NULL COMMENT 'Fecha de la reserva',
+	`id_empleado` INT(10) NOT NULL COMMENT 'Usuario que realiza la reserva',
+	`nombre_recurso` VARCHAR(30) NOT NULL COMMENT 'Nombre del recurso que se reserva',
+	`horainicio_reserva` TIME(6) NOT NULL COMMENT 'Fecha y hora a la que se realiza la reserva',
+	`horasalida_reserva` TIME(6) NOT NULL COMMENT 'Hora a la que se realiza la devolución de la reserva',
+	`dia_reserva` DATE NOT NULL COMMENT 'Fecha a la que se realiza la reserva',
 	PRIMARY KEY (`id_reserva`),
 	UNIQUE KEY (`id_reserva`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Tabla de las reservas que se realizan';
@@ -45,9 +45,6 @@ REFERENCES `tbl_tiporecurso` (`id_tiporecurso`);
 
 ALTER TABLE `tbl_reserva` ADD CONSTRAINT `FK_id_empleado` FOREIGN KEY (`id_empleado`)
 REFERENCES `tbl_empleados` (`id_empleado`);
-
-ALTER TABLE `tbl_reserva` ADD CONSTRAINT `FK_id_recurso` FOREIGN KEY (`id_recurso`)
-REFERENCES `tbl_recurso` (`id_recurso`);
 
 INSERT INTO `tbl_tiporecurso` (`nombre_tiporecurso`) VALUES
 	('Sala'),
@@ -80,5 +77,5 @@ INSERT INTO `tbl_empleados` (`nombre_empleado`,`apellidos_empleado`,`DNI_emplead
 	('Gemma','Marín Ordoñez','38376144T','gmarin','1234','626331772'),
 	('Laura','Lara Almazán','56565454L','llara','1234','656515212'),
 	('Jordi','Martínez Moya','12487963J','jmartinez','1234','679640650'),
-	('Carlos','Dueñas Marín','23125478M','cdueñas','1234','678996332');
+	('Carlos','Dueñas Marín','23125478M','cduenyas','1234','678996332');
 		
