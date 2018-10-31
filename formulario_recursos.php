@@ -2,11 +2,19 @@
 <html>
 <head>
 
-	<title> Main Page </title>
+	<title> Página Principal</title>
 	<title></title>
 	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="./style/estilos.css"/>
+	<link href="https://fonts.googleapis.com/css?family=Charmonman" rel="stylesheet">
 </head>
 <body>
+	<header>
+		<h1 id="titulo">Reserva de Material</h1>
+	</header>
+	<div id="general">
+		<h3 style="text-align: center; padding-top: 10px; font-family: 'Charmonman', cursive;">Bienvenido</h3>
+	<div id="formulario">
 <?php
 	$link = mysqli_connect('localhost', 'root', '', 'reserva_recursos');
 			if (!$link) {
@@ -25,7 +33,7 @@
 		//Variable de la sesión
 		session_start();
 		// $_SESSION["usuario"]=$_POST["usuario"];
-		echo "<h3>Hola " . $_SESSION['idusuario'] . "</h3>";
+		echo "<h3>Haz tu reserva" . "</h3>";
 	
 ?>
 	
@@ -47,34 +55,45 @@
 		Día:
 		<input type="date" name="dia"><br><br>
 		<input type="hidden" name="idusuario" value='<?php echo $_SESSION['idusuario']?>' >
-		<input type="submit" name="confirmar" value="confirmar">
-		<input type="button" value="Volver al login" onclick="window.location.href='login.proc.php'" />
+		<input type="submit" name="confirmar" value="Confirmar">
+		<input type="button" value="Volver al login" onclick="window.location.href='index.php'" />
 		
 	</form>
-
-	<h3>Reservas ya hechas</h3>
+</div>
+<div id="reservas">
+	<h3>Reservas</h3>
+	<table border="1px">
+				<tr>
+					<th>Reserva</th>
+					<th>Nombre Recurso</th>
+					<th>Hora Inicio</th>
+					<th>Hora Final</th>
+					<th>Día Reserva</th>
+				</tr>
 	<?php
 
 		$query = mysqli_query($link, "SELECT * FROM tbl_reserva ORDER BY id_reserva, nombre_recurso, horainicio_reserva, horasalida_reserva, dia_reserva");
 		while($recursos = mysqli_fetch_array($query)){
 	?>
-			<table border="1px">
+			
 				<tr>
-					<td><?php echo "Recurso: $recursos[id_reserva]"?></td>
-					<td><?php echo "Nombre: $recursos[nombre_recurso]"?></td>
-					<td><?php echo "Hora Inicio: $recursos[horainicio_reserva]"?></td>
-					<td><?php echo "Hora Final: $recursos[horasalida_reserva]"?></td>
-					<td><?php echo "Día reserva: $recursos[dia_reserva]"?></td>
+					<td><?php echo "$recursos[id_reserva]"?></td>
+					<td><?php echo "$recursos[nombre_recurso]"?></td>
+					<td><?php echo "$recursos[horainicio_reserva]"?></td>
+					<td><?php echo "$recursos[horasalida_reserva]"?></td>
+					<td><?php echo "$recursos[dia_reserva]"?></td>
 				</tr>
-			</table>
+			
 		<!-- echo "Recurso: $recursos[id_reserva], Nombre: $recursos[nombre_recurso], Hora Inicio: $recursos[horainicio_reserva] ,Hora Final: $recursos[horasalida_reserva], Día reserva: $recursos[dia_reserva]<br>"; -->
 		<?php
 		}
 		?>
+		</table>
 	<br>
 	<form>
-		<input type="button" value="Eliminar reserva" onclick="window.location.href='eliminar_recursos.php'" />
+		<input type="button" value="Eliminar Reserva" onclick="window.location.href='eliminar_recursos.php'" />
 	</form>
-
+</div>																															
+</div>
 </body>
 </html>

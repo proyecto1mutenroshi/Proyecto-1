@@ -33,9 +33,9 @@ CREATE TABLE IF NOT EXISTS `tbl_reserva`(
 	`id_reserva` INT(100) NOT NULL AUTO_INCREMENT COMMENT 'Clave primaria',
 	`id_empleado` INT(10) NULL COMMENT 'FK del empleado que hace la reserva',
 	`id_recurso` INT(10) NULL COMMENT 'FK del recurso que se reserva',
-	`contrasenya_empleado` VARCHAR(12) NOT NULL COMMENT 'Contraseña del empleado',
-	`fechahora_reserva` DATETIME(0) NOT NULL COMMENT 'Fecha y hora a la que se realiza la reserva',
-	`fechahoradev_reserva` DATETIME(0) NULL COMMENT 'Fecha y hora a la que se realiza la devolución de la reserva',
+	`horainicio_reserva` TIME(0) NULL COMMENT 'Fecha y hora a la que se realiza la reserva',
+	`horasalida_reserva` TIME(0) NULL COMMENT 'Hora a la que se realiza la devolución de la reserva',
+	`dia_reserva` DATE(0) NULL COMMENT 'Fecha de la reserva',
 	PRIMARY KEY (`id_reserva`),
 	UNIQUE KEY (`id_reserva`)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='Tabla de las reservas que se realizan';
